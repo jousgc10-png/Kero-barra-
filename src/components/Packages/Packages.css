@@ -1,0 +1,292 @@
+/* ============================================
+   PACKAGES
+   ============================================ */
+
+.packages {
+  background-color: var(--color-black);
+  position: relative;
+}
+
+/* Header */
+.packages__header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.packages__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.packages__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.packages__title-accent {
+  color: var(--color-gold);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.packages__description {
+  font-size: 1rem;
+  color: var(--color-white-muted);
+  max-width: 440px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ---------- Grid ---------- */
+
+.packages__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* Card */
+.packages__card {
+  position: relative;
+  background-color: var(--color-carbon);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  transition: transform var(--transition-base),
+              border-color var(--transition-base),
+              box-shadow var(--transition-base);
+}
+
+.packages__card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201, 169, 110, 0.18);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Highlighted card */
+.packages__card--highlighted {
+  border-color: rgba(201, 169, 110, 0.25);
+  background: linear-gradient(180deg, rgba(201, 169, 110, 0.04) 0%, var(--color-carbon) 40%);
+}
+
+.packages__card--highlighted:hover {
+  border-color: rgba(201, 169, 110, 0.4);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(201, 169, 110, 0.1);
+}
+
+/* Badge */
+.packages__badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  background: var(--color-gold);
+}
+
+/* Image */
+.packages__image-wrapper {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.packages__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.packages__card:hover .packages__image,
+.packages__card:hover .packages__placeholder {
+  transform: scale(1.05);
+}
+
+/* Placeholder */
+.packages__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 40% 40%, rgba(201, 169, 110, 0.08) 0%, transparent 60%),
+    linear-gradient(150deg, var(--color-carbon-light) 0%, var(--color-carbon) 100%);
+  transition: transform var(--transition-slow);
+}
+
+.packages__placeholder-icon {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  opacity: 0.3;
+}
+
+/* Content */
+.packages__content {
+  padding: 1.75rem;
+}
+
+.packages__name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 0.5rem;
+  transition: color var(--transition-fast);
+}
+
+.packages__card:hover .packages__name {
+  color: var(--color-gold);
+}
+
+.packages__description-text {
+  font-size: 0.85rem;
+  color: var(--color-white-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Features */
+.packages__features {
+  list-style: none;
+  margin-bottom: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.packages__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--color-white-muted);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.packages__feature:hover {
+  color: var(--color-white);
+  transform: translateX(3px);
+}
+
+.packages__check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  font-size: 0.6rem;
+  color: var(--color-gold);
+  border: 1px solid rgba(201, 169, 110, 0.3);
+  border-radius: 50%;
+  margin-top: 1px;
+}
+
+/* CTA */
+.packages__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.25);
+  transition: gap var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.packages__cta:hover {
+  gap: 0.75rem;
+  border-color: var(--color-gold);
+  color: var(--color-gold-light);
+}
+
+.packages__cta-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.packages__cta:hover .packages__cta-arrow {
+  transform: translateX(3px);
+}
+
+/* ---------- Reveal ---------- */
+
+.packages__reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.packages__reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .packages__card,
+  .packages__image,
+  .packages__placeholder,
+  .packages__feature,
+  .packages__cta,
+  .packages__cta-arrow {
+    transition: none;
+  }
+
+  .packages__reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+  .packages__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .packages__card--highlighted {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .packages__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .packages__card--highlighted {
+    grid-column: span 1;
+  }
+
+  .packages__header {
+    margin-bottom: 2.5rem;
+  }
+
+  .packages__content {
+    padding: 1.5rem;
+  }
+}

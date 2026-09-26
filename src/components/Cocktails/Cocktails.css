@@ -1,0 +1,499 @@
+/* ============================================
+   COCKTAILS
+   ============================================ */
+
+.cocktails {
+  background-color: var(--color-black);
+  position: relative;
+}
+
+/* Header */
+.cocktails__header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.cocktails__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.cocktails__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.cocktails__title-accent {
+  color: var(--color-gold);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.cocktails__description {
+  font-size: 1rem;
+  color: var(--color-white-muted);
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ---------- Grid ---------- */
+
+.cocktails__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Cards */
+.cocktails__card {
+  background-color: var(--color-carbon);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  transition: transform var(--transition-base),
+              border-color var(--transition-base),
+              box-shadow var(--transition-base);
+}
+
+.cocktails__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 169, 110, 0.15);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* Wide cards span 2 columns */
+.cocktails__card--wide {
+  grid-column: span 2;
+}
+
+.cocktails__card--standard {
+  grid-column: span 1;
+}
+
+/* Image */
+.cocktails__image-wrapper {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.cocktails__card--wide .cocktails__image-wrapper {
+  aspect-ratio: 21 / 9;
+}
+
+.cocktails__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.cocktails__card:hover .cocktails__image,
+.cocktails__card:hover .cocktails__placeholder {
+  transform: scale(1.04);
+}
+
+/* Placeholder */
+.cocktails__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 35% 45%, rgba(201, 169, 110, 0.08) 0%, transparent 60%),
+    linear-gradient(150deg, var(--color-carbon-light) 0%, var(--color-carbon) 100%);
+  transition: transform var(--transition-slow);
+}
+
+.cocktails__placeholder-letter {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  opacity: 0.3;
+}
+
+/* Hover overlay */
+.cocktails__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 10, 0);
+  transition: background var(--transition-base);
+}
+
+.cocktails__card:hover .cocktails__overlay {
+  background: rgba(10, 10, 10, 0.4);
+}
+
+.cocktails__view-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  border: 1px solid rgba(201, 169, 110, 0.4);
+  background: rgba(10, 10, 10, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--transition-base), transform var(--transition-base),
+              border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.cocktails__card:hover .cocktails__view-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cocktails__view-btn:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+/* Content */
+.cocktails__content {
+  padding: 1.5rem;
+}
+
+.cocktails__category {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+}
+
+.cocktails__name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 0.5rem;
+  transition: color var(--transition-fast);
+}
+
+.cocktails__card:hover .cocktails__name {
+  color: var(--color-gold);
+}
+
+.cocktails__description-text {
+  font-size: 0.85rem;
+  color: var(--color-white-muted);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.cocktails__ingredients {
+  font-size: 0.75rem;
+  color: var(--color-white-subtle);
+  margin-bottom: 1.25rem;
+  font-style: italic;
+}
+
+/* CTA */
+.cocktails__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.25);
+  transition: gap var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+}
+
+.cocktails__cta:hover {
+  gap: 0.6rem;
+  border-color: var(--color-gold);
+  color: var(--color-gold-light);
+}
+
+.cocktails__cta-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.cocktails__cta:hover .cocktails__cta-arrow {
+  transform: translateX(3px);
+}
+
+/* ---------- MODAL ---------- */
+
+.cocktail-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 5, 5, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  animation: fadeIn 0.25s ease;
+}
+
+.cocktail-modal__content {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  background: var(--color-carbon);
+  border: 1px solid rgba(201, 169, 110, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  animation: modalSlideUp 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Close */
+.cocktail-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.5);
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+  cursor: pointer;
+}
+
+.cocktail-modal__close:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+/* Image */
+.cocktail-modal__image-wrapper {
+  position: relative;
+  min-height: 300px;
+}
+
+.cocktail-modal__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+.cocktail-modal__placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 40% 40%, rgba(201, 169, 110, 0.08) 0%, transparent 60%),
+    linear-gradient(160deg, var(--color-carbon-light) 0%, var(--color-carbon) 100%);
+  position: absolute;
+  inset: 0;
+}
+
+.cocktail-modal__placeholder-letter {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  opacity: 0.3;
+}
+
+/* Info */
+.cocktail-modal__info {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cocktail-modal__category {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.75rem;
+}
+
+.cocktail-modal__name {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.cocktail-modal__description {
+  font-size: 0.9rem;
+  color: var(--color-white-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.cocktail-modal__ingredients-title {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-white-subtle);
+  margin-bottom: 0.6rem;
+}
+
+.cocktail-modal__ingredients-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cocktail-modal__ingredient {
+  font-size: 0.85rem;
+  color: var(--color-white-muted);
+  padding-left: 1rem;
+  position: relative;
+}
+
+.cocktail-modal__ingredient::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-gold);
+}
+
+/* ---------- Animations ---------- */
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cocktails__reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cocktails__reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cocktails__card,
+  .cocktails__image,
+  .cocktails__placeholder,
+  .cocktails__overlay,
+  .cocktails__view-btn,
+  .cocktails__cta,
+  .cocktails__cta-arrow {
+    transition: none;
+  }
+
+  .cocktails__reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .cocktail-modal,
+  .cocktail-modal__content {
+    animation: none;
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+  .cocktails__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cocktails__card--wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .cocktails__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .cocktails__card--wide,
+  .cocktails__card--standard {
+    grid-column: span 1;
+  }
+
+  .cocktails__card--wide .cocktails__image-wrapper {
+    aspect-ratio: 16 / 10;
+  }
+
+  .cocktails__header {
+    margin-bottom: 2.5rem;
+  }
+
+  /* Modal mobile */
+  .cocktail-modal {
+    padding: 0;
+  }
+
+  .cocktail-modal__content {
+    grid-template-columns: 1fr;
+    max-height: 100vh;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .cocktail-modal__image-wrapper {
+    min-height: 200px;
+  }
+
+  .cocktail-modal__placeholder {
+    min-height: 200px;
+  }
+
+  .cocktail-modal__info {
+    padding: 1.5rem;
+  }
+}

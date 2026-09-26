@@ -1,0 +1,272 @@
+/* ============================================
+   VIDEO EXPERIENCE
+   ============================================ */
+
+.video {
+  background-color: var(--color-black);
+  position: relative;
+}
+
+/* Header */
+.video__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.video__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.video__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.video__title-accent {
+  color: var(--color-gold);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.video__description {
+  font-size: 1rem;
+  color: var(--color-white-muted);
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ---------- Video Stage ---------- */
+
+.video__stage {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: var(--color-carbon);
+  border: 1px solid rgba(201, 169, 110, 0.1);
+}
+
+.video__element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Placeholder */
+.video__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(201, 169, 110, 0.06) 0%, transparent 60%),
+    linear-gradient(160deg, #0d0d0d 0%, #050505 100%);
+}
+
+.video__placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a96e' fill-opacity='0.02'%3E%3Cpath d='M20 20h20v20H20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.video__placeholder-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video__placeholder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.video__placeholder-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--color-gold);
+  opacity: 0.3;
+}
+
+.video__placeholder-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-white-subtle);
+}
+
+/* ---------- Play Button ---------- */
+
+.video__play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(201, 169, 110, 0.3);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: transform var(--transition-fast), background var(--transition-fast),
+              border-color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.video__play-btn:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+  background: rgba(201, 169, 110, 0.15);
+  border-color: var(--color-gold);
+}
+
+.video__play-btn:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.video__play-btn--playing {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.video__stage:hover .video__play-btn--playing {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---------- Controls Bar ---------- */
+
+.video__controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 1.5rem 1.25rem 1rem;
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.85) 0%, transparent 100%);
+  transition: opacity var(--transition-base);
+}
+
+.video__controls--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Progress bar */
+.video__progress {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.video__progress::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  height: 19px;
+}
+
+.video__progress-fill {
+  height: 100%;
+  background: var(--color-gold);
+  transition: width 0.1s linear;
+}
+
+/* Controls row */
+.video__controls-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.video__ctrl-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--color-white);
+  border-radius: 4px;
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.video__ctrl-btn:hover {
+  color: var(--color-gold);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.video__ctrl-btn:focus-visible {
+  outline: 1px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* ---------- Reveal Animations ---------- */
+
+.video .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.video .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 768px) {
+  .video__header {
+    margin-bottom: 2rem;
+  }
+
+  .video__stage {
+    aspect-ratio: 4 / 3;
+  }
+
+  .video__play-btn {
+    width: 56px;
+    height: 56px;
+  }
+
+  .video__controls {
+    padding: 1rem 0.85rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .video__stage {
+    aspect-ratio: 1 / 1;
+  }
+}
